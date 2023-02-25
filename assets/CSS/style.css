@@ -3,7 +3,9 @@
     --white--color: #fff;
     --light--gray--color: #eee;
     --secondary--color: crimson;
+    --test--color: #363636 ;
     --gap: 3rem;
+
 }
 * {
     margin: 0;
@@ -12,6 +14,7 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 body {
     font-family: 'Open Sans', sans-serif;
@@ -28,7 +31,9 @@ h1 {
     text-transform: uppercase;
 }
 h2 {
-    font-size: 5.5rem;
+    font-size: 6rem;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
 }
 h3 {
     font-size: 4rem;
@@ -45,23 +50,48 @@ h6{
 a {
     text-decoration: none;
 }
+p {
+    margin-bottom: 2em;
+}
+table {
+    min-width: 36rem;
+    width: 100%;
+    border-collapse: collapse;
+}
+table caption {
+    font-style: italic;
+    font-size: 1.6rem;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+table td, table th {
+    white-space: nowrap;
+    padding: 1rem;
+    text-align: left;
+    border: 0.1rem solid var(--light--gray--color)
+}
+tfoot td, thead th {
+    background-color: var(--light--gray--color);
+}
 .main-bg{
     background-image: url('../IMG/scattered-forcefields.svg');
     /*'../IMG/rose-petals.svg'*/
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    color: var(--white--color);
+    color: var(--test--color);
 }
 .white-bg {
     background: var(--white--color);
 }
-
+.other-bg {
+    background: var();
+}
 .main-content {
     max-width: 120rem;
     margin: 0 auto;
     align-items: center;
-    padding: var(--gap);
+    padding: 8rem var(--gap);
 }
 
 .section {
@@ -85,7 +115,7 @@ a {
 }
 .menu h1 {
     font-size: 2.3rem;
-    color: var(--primary--color);
+    color: var(--test--color);
 }
 .menu h1 a {
     color: inherit;
@@ -124,7 +154,7 @@ a {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: var(--gap);
-    height: 100vh;
+    min-height: 100vh;
 }
 .intro-text-content, .intro-img {
     display: flex;
@@ -140,5 +170,68 @@ a {
 }
 .intro-img img {
     max-width: 100%;
-    height: auto;
+    min-height: auto;
+}
+.top3-content {
+    max-width: 74rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+
+}
+
+.grid-one-content {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    min-height:100vh;
+}
+.grid-main-heading h2 {
+    margin-bottom: 1rem;
+}
+.grid-description {
+    padding-bottom: 5rem;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+    counter-reset: grid-counter;
+}
+.grid h3 {
+    font-size: 3rem;
+    position: relative;
+    padding-left: 5rem;
+    padding-bottom: 2rem; 
+}
+.grid h3::before {
+    counter-increment: grid-counter;
+    content:counter(grid-counter);
+    position: absolute;
+    font-size: 8rem;
+    font-style: italic;
+    top: -4rem;
+    left: -2rem;
+    transform: rotate(5deg);
+
+}
+.gallery-img {
+    width: 100%;
+    max-width: 36rem;
+    max-height: 36rem;
+    overflow: hidden;
+}
+.gallery-img img {
+    transition: all 300ms ease-in-out;
+}
+.gallery-img img:hover {
+    transform: translate(-3%, 3% scale(1.2) rotate(5deg));
+}
+
+.responsive-table {
+    overflow: hidden;
+    overflow-x: auto;
 }
